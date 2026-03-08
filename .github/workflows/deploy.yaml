@@ -37,7 +37,7 @@ jobs:
       - name: Update Kubernetes Resources (In-memory)
         run: |
           cd k8s/dev 
-          kustomize edit set image test-frontend=${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_REPOSITORY_URL }}:${{ github.sha }}
+          kustomize edit set image test-web=${{ steps.login-ecr.outputs.registry }}/${{ secrets.AWS_REPOSITORY_URL }}:${{ github.sha }}
 
       - name: Update Kubeconfig
         run: |
