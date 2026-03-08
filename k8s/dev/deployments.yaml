@@ -17,6 +17,9 @@ spec:
           image: test-web
           ports:
             - containerPort: 3000
+          env:
+            - name: INTERNAL_BACKEND_URL
+              value: http://test-backend-service
           livenessProbe:
             httpGet:
               path: /health-check
@@ -29,6 +32,3 @@ spec:
               port: 3000
             initialDelaySeconds: 5
             periodSeconds: 5
-env:
-  - name: INTERNAL_BACKEND_URL
-    value: http://test-backend-service
