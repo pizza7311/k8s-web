@@ -1,0 +1,13 @@
+# k8s/prod/service.yaml (새로 만드세요)
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-web-service
+spec:
+  type: LoadBalancer # AWS ELB가 생성되어 외부 접속 주소가 나옵니다.
+  selector:
+    app: test-web
+  ports:
+    - protocol: TCP
+      port: 80 # 외부에서 접속할 포트
+      targetPort: 3000 # 컨테이너(NestJS) 포트
